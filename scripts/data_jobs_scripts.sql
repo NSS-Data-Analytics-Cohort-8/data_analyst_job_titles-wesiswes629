@@ -128,6 +128,14 @@ WHERE title LIKE '%Analyst%';
 
 -- 12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
 
+SELECT 
+	DISTINCT title
+	AS distinct_titles
+FROM data_analyst_jobs
+WHERE title NOT LIKE '%Analyst%';
+
+
+
 -- **BONUS:**
 -- You want to understand which jobs requiring SQL are hard to fill. Find the number of jobs by industry (domain) that require SQL and have been posted longer than 3 weeks. 
 --  - Disregard any postings where the domain is NULL. 
