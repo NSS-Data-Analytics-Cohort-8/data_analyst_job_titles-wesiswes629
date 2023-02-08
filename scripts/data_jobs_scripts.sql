@@ -103,6 +103,19 @@ ORDER BY company;
 
 -- 10.	Add the code to order the query in #9 from highest to lowest average star rating. Which company with more than 5000 reviews across all locations in the dataset has the highest star rating? What is that rating?
 
+SELECT
+	company,
+	AVG(star_rating)
+	AS avg_stars,
+	SUM(review_count)
+	AS sum_reviews
+FROM data_analyst_jobs
+GROUP BY company
+HAVING SUM(review_count) > 5000
+ORDER BY avg_stars DESC;
+
+-- Answer: The company that has the highest average star rating with over 5000 reviews is Google.  It has an average star rating of 4.3000001910000000.
+
 -- 11.	Find all the job titles that contain the word ‘Analyst’. How many different job titles are there? 
 
 -- 12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
