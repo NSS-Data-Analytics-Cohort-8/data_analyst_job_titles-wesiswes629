@@ -67,12 +67,24 @@ SELECT
 
 SELECT 
 	COUNT(DISTINCT title)
-	AS count_unique_jobs
+	AS unique_job_titles
 	FROM data_analyst_jobs;
 	
 -- Answer: There are 881 unique job titles listed.
 
 -- 8.	How many unique job titles are there for California companies?
+
+SELECT
+	COUNT(DISTINCT title)
+	AS unique_job_titles,
+	location
+	AS state
+	FROM data_analyst_jobs
+	GROUP BY state
+	HAVING location = 'CA';
+	
+-- Answer: There are 230 Unique job title in the state of California.
+
 
 -- 9.	Find the name of each company and its average star rating for all companies that have more than 5000 reviews across all locations. How many companies are there with more that 5000 reviews across all locations?
 
