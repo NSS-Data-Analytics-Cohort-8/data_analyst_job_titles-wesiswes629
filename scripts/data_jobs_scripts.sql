@@ -118,6 +118,14 @@ ORDER BY avg_stars DESC;
 
 -- 11.	Find all the job titles that contain the word ‘Analyst’. How many different job titles are there? 
 
+SELECT 
+	DISTINCT title
+	AS distinct_titles
+FROM data_analyst_jobs
+WHERE title LIKE '%Analyst%';
+
+-- Answer: There are 754 unique job titles containing the word "Analyst". 
+
 -- 12.	How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
 
 -- **BONUS:**
