@@ -145,20 +145,14 @@ AND title NOT LIKE '%Analytics%';
 
 SELECT 
 	domain,
-	skill,
-	days_since_posting
+	COUNT(skill) AS count_skill,
+	COUNT(days_since_posting) AS count_posting
 FROM data_analyst_jobs
 WHERE domain IS NOT NULL
+AND skill LIKE '%SQL%'
 AND days_since_posting > 21
-GROUP BY domain, skill, days_since_posting
-HAVING skill LIKE '%SQL%'
-AND days_since_posting > 21
-ORDER BY domain DESC;
+GROUP BY domain
+ORDER BY count_skill DESC
+LIMIT 4;
 
-SELECT 
-	domain,
-	COUNT(domain) AS count_industry
-	FROM data_analyst_jobs
-	WHERE domain IS NOT NULL
-	GROUP BY domain;
-
+-- Answer: The top 3 are #1 Internet and Software with 62, #2 Banks and Financial Services with 61, and #3 Consulting and Business Services with 57.
