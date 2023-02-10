@@ -156,3 +156,13 @@ ORDER BY count_skill DESC
 LIMIT 4;
 
 -- Answer: The top 3 are #1 Internet and Software with 62, #2 Banks and Financial Services with 61, and #3 Consulting and Business Services with 57.
+
+-- 1. For each company, give the company name and the difference between its star rating and the national average star rating.
+
+SELECT company, star_rating - (SELECT AVG(star_rating) FROM data_analyst_jobs) AS avg_minus
+FROM data_analyst_jobs
+GROUP BY company, avg_minus
+ORDER BY company;
+
+-- 2. Using a correlated subquery: For each company, give the company name, its domain, its star rating, and its domain average star rating
+-- 3. Repeat question 2 using a CTE instead of a correlated subquery
